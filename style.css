@@ -60,7 +60,7 @@ body{
 }
 
 #color-picker::-moz-color-swatch{
-    border-radius: 80px;
+    border-radius: 6px;
     border: none;
 }
 
