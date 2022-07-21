@@ -1,14 +1,13 @@
-
 /* slider value display script */
 var gridSlider = document.getElementById("grid-slider");
 var gridDisplay = document.getElementById("grid-display");
 var gridValue = 16; // default initial value 
-makeGrid(gridValue);
+let gridElements = makeGrid(gridValue); // initializes first artboard grid
 
 gridSlider.oninput = function() {
     gridDisplay.textContent = `Board Grid: ${gridSlider.value}x${gridSlider.value}`
     gridValue = gridSlider.value;
-    makeGrid(gridValue);
+    gridElements = makeGrid(gridValue);
 }
 
 /* creates new grid for artboard */
@@ -19,6 +18,7 @@ function makeGrid(gridValue){
     clearArtboard();
     setArtboardProperties(numberOfElements, sizeOfElements);
     addGridElement(numberOfElements);
+    return document.querySelectorAll(".grid-item");
 }
 
 function clearArtboard() {
@@ -43,4 +43,21 @@ function setArtboardProperties(numberOfElements, sizeOfElements){
     const artboard = document.getElementById("artboard");
     artboard.style.gridTemplateColumns = `repeat(${gridValue}, ${sizeOfElements}px)`;
     artboard.style.gridAutoRows = `${sizeOfElements}px`;
+}
+
+/* sketches with chosen color when hovered over artboard */
+gridElements.forEach(element => {
+    element.addEventListener("mouseover", doSketch);
+});
+
+function getCurrentColor(){
+    const colorPicker = document.getElementById("color-picker");
+    const colorValue = colorPicker.value;
+    return colorValue;
+}
+
+function doSketch(e){
+    const colorValue = getCurrentColor();
+    console.log(this);
+    this.style.backgroundColor = colorValue;
 }
