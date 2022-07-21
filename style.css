@@ -1,0 +1,16 @@
+body{
+    font-family: 'Outfit', 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(18, 18, 20);
+}
+
+.header-text{
+    padding: 12px 0px;
+    color:white;
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: 1px;
+}
