@@ -44,6 +44,3 @@ function setArtboardProperties(numberOfElements, sizeOfElements){
     artboard.style.gridTemplateColumns = `repeat(${gridValue}, ${sizeOfElements}px)`;
     artboard.style.gridAutoRows = `${sizeOfElements}px`;
 }
-
-
-// makeGrid(16);
