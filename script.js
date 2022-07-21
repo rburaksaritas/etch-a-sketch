@@ -73,3 +73,12 @@ clearButton.addEventListener("click", clear);
 function clear(e){
    gridElements.forEach(element => {element.style.backgroundColor = "#ffffff"});
 }
+
+/* sets current color to white when eraser button is clicked */
+const eraserButton = document.querySelector(".eraser-button");
+eraserButton.addEventListener("click", setEraser);
+
+function setEraser(e){
+    const colorPicker = document.getElementById("color-picker");
+    colorPicker.value = "#ffffff";
+}
