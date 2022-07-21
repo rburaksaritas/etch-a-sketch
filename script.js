@@ -8,20 +8,21 @@ gridSlider.oninput = function() {
     gridDisplay.textContent = `Board Grid: ${gridSlider.value}x${gridSlider.value}`
     gridValue = gridSlider.value;
     gridElements = makeGrid(gridValue);
+    addListenerForSketch();
 }
 
 /* creates new grid for artboard */
+/* returns new collection of grid items */
 function makeGrid(gridValue){
     const sizeOfElements = (480/gridValue); // assuming artboard width and height fixed 480px
-    const artboard = document.getElementById("artboard");
     const numberOfElements = Math.pow(gridValue, 2);
-    clearArtboard();
+    clearGrid();
     setArtboardProperties(numberOfElements, sizeOfElements);
     addGridElement(numberOfElements);
     return document.querySelectorAll(".grid-item");
 }
 
-function clearArtboard() {
+function clearGrid() {
     const artboard = document.getElementById("artboard");   
     var gridElement = artboard.lastElementChild; 
     while (gridElement) {
@@ -46,9 +47,12 @@ function setArtboardProperties(numberOfElements, sizeOfElements){
 }
 
 /* sketches with chosen color when hovered over artboard */
-gridElements.forEach(element => {
-    element.addEventListener("mouseover", doSketch);
-});
+function addListenerForSketch(){
+    gridElements.forEach(element => {
+        element.addEventListener("mouseover", doSketch);
+    });
+}
+addListenerForSketch();
 
 function getCurrentColor(){
     const colorPicker = document.getElementById("color-picker");
@@ -60,4 +64,12 @@ function doSketch(e){
     const colorValue = getCurrentColor();
     console.log(this);
     this.style.backgroundColor = colorValue;
+}
+
+/* clears the artboard when clear button is clicked */
+const clearButton = document.querySelector(".clear-button");
+clearButton.addEventListener("click", clear);
+
+function clear(e){
+   gridElements.forEach(element => {element.style.backgroundColor = "#ffffff"});
 }
