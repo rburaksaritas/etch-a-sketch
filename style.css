@@ -4,13 +4,136 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(18, 18, 20);
+    background-color: rgb(27, 27, 42);
 }
 
 .header-text{
-    padding: 12px 0px;
+    margin: 24px;
     color:white;
     font-weight: bold;
     font-size: 48px;
     letter-spacing: 1px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 50%;
+    margin-top: -250px;
+    gap: 16px;
+}
+
+/* glassmorphism effect class */
+.glassmorphism{
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 24px 0 rgba(16, 19, 61, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* control panel styling */
+.control-panel{
+    height: 500px;
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/* color picker styling */
+#color-picker{
+    background-color: transparent;
+    width: 48px;
+    height: 48px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+#color-picker::-webkit-color-swatch{
+    border-radius: 6px;
+    border: none;
+}
+
+#color-picker::-moz-color-swatch{
+    border-radius: 80px;
+    border: none;
+}
+
+/* buttons styling */
+button{
+    font-family: "Outfit", "Montserrat", sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 8px 12px;
+}
+
+button:hover,
+#color-picker:hover{
+    background: rgba(255, 255, 255, 0.25);
+}
+
+button:active{
+    background: rgba(255, 255, 255, 0.35);
+}
+
+#eraser-buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.size-button{
+    margin-top: -16px;
+    margin-bottom: 16px;
+}
+
+.size-control{
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0px 36px;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+#grid-slider{
+    width: 75%;
+    color: white;
+    outline: none;
+}
+
+/* artboard styling */
+.artboard-container{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artboard{
+    width: 480px;
+    height: 480px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+/* footer styling */
+footer{
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 12px;
+    justify-self: flex-end;
+    color: white;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }

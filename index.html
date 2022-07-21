@@ -12,5 +12,30 @@
 </head>
 <body>
     <div class=header-text>Etch-a-Sketch</div>
+    <div class="container">
+        <div class="control-panel glassmorphism">
+            <input type="color" id="color-picker" class="glassmorphism" value="#864eca">
+            <button class="default-button glassmorphism">Default Mode</button>
+            <button class="rainbow-button glassmorphism">Rainbow Mode</button>
+            <button class="shading-button glassmorphism">Shading Mode</button>
+            <div id="eraser-buttons">
+                <button class="eraser-button glassmorphism">Eraser</button>
+                <button class="clear-button glassmorphism">Clear</button>
+            </div>
+            <!--
+                <button class="size-button glassmorphism">Change Size</button>
+            -->
+            <div class="size-control">
+                <input id="grid-slider" type="range" min="4" max="100" value="16">
+                <p id="grid-display">16x16</p>
+            </div>
+        </div>
+        <div class="artboard-container glassmorphism">
+            <div class="artboard"></div>
+        </div>
+    </div>
+    <footer>
+        <p>Brought to you with ♥ by <strong><a href="https://www.github.com/rburaksaritas">github.com/rburaksaritas</a></strong></p>
+    </footer>
 </body>
 </html>
