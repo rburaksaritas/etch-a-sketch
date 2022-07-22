@@ -73,7 +73,7 @@ function doSketch(e){
         if (rgbToHex(this.style.backgroundColor)!=colorValue){
             this.style.backgroundColor = colorValue;
             this.style.opacity = 0.25;
-        }else {
+        } else {
             if(this.style.opacity<1){
                 this.style.opacity = parseFloat(this.style.opacity) + 0.25;
             }
@@ -83,7 +83,6 @@ function doSketch(e){
         this.style.backgroundColor = colorValue;
         this.style.opacity = 1;
     }
-
 }
 
 /* clears the artboard when clear button is clicked */
