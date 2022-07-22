@@ -98,6 +98,8 @@ const eraserButton = document.querySelector(".eraser-button");
 eraserButton.addEventListener("click", setEraser);
 
 function setEraser(e){
+    shadingMode = false;
+    rainbowMode = false;
     const colorPicker = document.getElementById("color-picker");
     colorPicker.value = "#ffffff";
 }
