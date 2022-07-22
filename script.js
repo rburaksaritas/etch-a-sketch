@@ -4,6 +4,7 @@ var gridDisplay = document.getElementById("grid-display");
 var gridValue = 16; // default initial value 
 let gridElements = makeGrid(gridValue); // initializes first artboard grid
 let rainbowMode = false;
+let shadingMode = false;
 
 gridSlider.oninput = function() {
     gridDisplay.textContent = `Board Grid: ${gridSlider.value}x${gridSlider.value}`
@@ -88,9 +89,12 @@ function setEraser(e){
     colorPicker.value = "#ffffff";
 }
 
-/* changes current color randomly when rainbow mode button is clicked */
+/* rainbow mode: changes current color randomly when rainbow mode button is clicked */
 const rainbowButton = document.querySelector(".rainbow-button");
-rainbowButton.addEventListener("click", () => rainbowMode = true);
+rainbowButton.addEventListener("click", () => {
+    rainbowMode = true;
+    shadingMode = false; 
+});
 
 function getRandomColor(){
     const letters = "0123456789ABCDEF".split("");
@@ -100,3 +104,11 @@ function getRandomColor(){
     }
     return color;
 }
+
+/* default mode: sets rainbow and shading modes to false */
+const defaultButton = document.querySelector(".default-button");
+defaultButton.addEventListener("click", () => {
+    rainbowMode = false;
+    shadingMode = false;
+});
+
