@@ -3,6 +3,7 @@ var gridSlider = document.getElementById("grid-slider");
 var gridDisplay = document.getElementById("grid-display");
 var gridValue = 16; // default initial value 
 let gridElements = makeGrid(gridValue); // initializes first artboard grid
+let rainbowMode = false;
 
 gridSlider.oninput = function() {
     gridDisplay.textContent = `Board Grid: ${gridSlider.value}x${gridSlider.value}`
@@ -61,8 +62,12 @@ function getCurrentColor(){
 }
 
 function doSketch(e){
-    const colorValue = getCurrentColor();
-    console.log(this);
+    let colorValue;
+    if(rainbowMode){
+        colorValue = getRandomColor();
+    } else{
+        colorValue = getCurrentColor();
+    }
     this.style.backgroundColor = colorValue;
 }
 
@@ -81,4 +86,17 @@ eraserButton.addEventListener("click", setEraser);
 function setEraser(e){
     const colorPicker = document.getElementById("color-picker");
     colorPicker.value = "#ffffff";
+}
+
+/* changes current color randomly when rainbow mode button is clicked */
+const rainbowButton = document.querySelector(".rainbow-button");
+rainbowButton.addEventListener("click", () => rainbowMode = true);
+
+function getRandomColor(){
+    const letters = "0123456789ABCDEF".split("");
+    let color = "#";
+    for (let i = 0; i < 6; i++){
+        color += letters[Math.round(Math.random()*15)];
+    }
+    return color;
 }
