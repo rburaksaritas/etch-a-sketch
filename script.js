@@ -66,10 +66,24 @@ function doSketch(e){
     let colorValue;
     if(rainbowMode){
         colorValue = getRandomColor();
-    } else{
+        this.style.backgroundColor = colorValue;
+        this.style.opacity = 1;
+    } else if(shadingMode){
         colorValue = getCurrentColor();
+        if (rgbToHex(this.style.backgroundColor)!=colorValue){
+            this.style.backgroundColor = colorValue;
+            this.style.opacity = 0.25;
+        }else {
+            if(this.style.opacity<1){
+                this.style.opacity = parseFloat(this.style.opacity) + 0.25;
+            }
+        }
+    } else {
+        colorValue = getCurrentColor();
+        this.style.backgroundColor = colorValue;
+        this.style.opacity = 1;
     }
-    this.style.backgroundColor = colorValue;
+
 }
 
 /* clears the artboard when clear button is clicked */
@@ -103,6 +117,31 @@ function getRandomColor(){
         color += letters[Math.round(Math.random()*15)];
     }
     return color;
+}
+
+/* shading mode: reduces sketching opacity */
+const shadingButton = document.querySelector(".shading-button");
+shadingButton.addEventListener("click", () => {
+    rainbowMode = false;
+    shadingMode = true;
+});
+
+function rgbToHex(rgbString) {
+    rgbString = rgbString.replace("rgb(", "");
+    rgbString = rgbString.replace(")", "");
+    const rgbValues = rgbString.split(", ");
+    let r = toHex(parseInt(rgbValues[0]));
+    let g = toHex(parseInt(rgbValues[1]));
+    let b = toHex(parseInt(rgbValues[2]));
+    return "#" +  r + g + b;
+}
+
+function toHex(n) {
+    let hex = n.toString(16);
+    while (hex.length < 2){
+        hex = "0" + hex; 
+    }
+    return hex;
 }
 
 /* default mode: sets rainbow and shading modes to false */
