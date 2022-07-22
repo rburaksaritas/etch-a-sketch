@@ -90,7 +90,10 @@ const clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener("click", clear);
 
 function clear(e){
-   gridElements.forEach(element => {element.style.backgroundColor = "#ffffff"});
+    gridElements.forEach(element => {
+        element.style.backgroundColor = "#ffffff";
+        element.style.opacity = 1;
+    });
 }
 
 /* sets current color to white when eraser button is clicked */
