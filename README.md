@@ -1,5 +1,5 @@
 # etch-a-sketch
-The Odin Project's Etch-a-Sketch Project for HTML, CSS and JavaScript. Mainly focused on DOM manipuation through JavaScript. [Click here](https://rburaksaritas.github.io/etch-a-sketch/) to try it out!
+The Odin Project's Etch-a-Sketch Project for practicing HTML, CSS and JavaScript. Mainly focused on DOM manipuation through JavaScript. [Click here](https://rburaksaritas.github.io/etch-a-sketch/) to try it out!
 
 ## How to Use
 - Navigate to the GitHub Page that hosts the application by following the link above.
